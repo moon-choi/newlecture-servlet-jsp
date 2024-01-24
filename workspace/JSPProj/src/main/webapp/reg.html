@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hi page</title>
+</head>
+<body>
+	<div>
+		<form action="notice-reg" method="post">
+		<!--  post 로 보내면 쿼리값으로 붙지 않고 body 에 붙어서 감. 큰 데이터 보낼 수 있음. -->
+			<div>
+				<label>제목: </label><input name="title"type="text">
+			</div>
+			<div>
+				<label>내용: </label>
+				<textarea name="content"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="register"/>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html> 
