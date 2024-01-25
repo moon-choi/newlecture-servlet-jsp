@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/hi") //mapping 정보를 남기므로 web.xml에서 mapping 안해도 됌.
-public class Nana extends HttpServlet{
+public class Hi extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

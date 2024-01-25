@@ -23,15 +23,27 @@
   metadata-complete="false"> 
 
 <!--   <servlet>
-    <servlet-name>na</servlet-name>
-    <servlet-class>com.newlecture.web.Nana</servlet-class>
+    <servlet-name>nana</servlet-name>
+    <servlet-class>com.newlecture.web.Hi</servlet-class>
   </servlet>
+  
   <servlet-mapping>
-    <servlet-name>na</servlet-name>
+    <servlet-name>nana</servlet-name>
     <url-pattern>/hello</url-pattern>	
   </servlet-mapping> -->
 
-  <display-name>Welcome to Tomcat</display-name>
+<!-- 	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>com.newlecture.web.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+ -->  
+ 
+ <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to Tomcat
   </description>

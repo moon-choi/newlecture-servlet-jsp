@@ -19,12 +19,11 @@ public class NoticeReg extends HttpServlet{
 		response.setContentType("text/html; charset=UTF-8"); //받을 때 이렇게 읽어라. text/html은 형식. 브라우저야 이대로 해석라.
 		// Response header에 Content-Type: text/html;charset=UTF-8로 지정됌. 브라우저가 자의적으로 컨텐트 해석하는 것을 방지함. 
 		
-		PrintWriter out = response.getWriter();
-		
-		request.setCharacterEncoding("UTF-8"); //폼 안의 값이 한글일 때 submit 후 안깨지게끔. 
+//		request.setCharacterEncoding("UTF-8"); //폼 안의 값이 한글일 때 submit 후 안깨지게끔. 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
+		PrintWriter out = response.getWriter();
 		out.println(title);
 		out.println(content);
 
