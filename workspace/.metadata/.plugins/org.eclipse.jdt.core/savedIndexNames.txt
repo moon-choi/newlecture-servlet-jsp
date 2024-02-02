@@ -9,7 +9,6 @@ INDEX VERSION 1.131+/Users/moonchoi/projects/뉴렉처/Servlet-JSP/workspace/.me
 1600140459.index
 2978807474.index
 1440612024.index
-2967056532.index
 538917169.index
 1132855148.index
 713435661.index

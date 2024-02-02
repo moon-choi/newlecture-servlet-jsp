@@ -17,6 +17,7 @@ org.eclipse.jface.textfont=1|Menlo|16.0|0|COCOA|1|;
 org.eclipse.mylyn.wikitext.ui.presentation.textFont=1|Menlo|16.0|0|COCOA|1|;
 org.eclipse.pde.internal.ui.compare.ManifestContentMergeViewer=1|Menlo|16.0|0|COCOA|1|;
 org.eclipse.pde.internal.ui.compare.PluginContentMergeViewer=1|Menlo|16.0|0|COCOA|1|;
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\n<org.eclipse.ui.commands>\n<keyBinding contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+SPACE"/>\n<keyBinding commandId\="org.eclipse.ui.edit.text.contentAssist.proposals" contextId\="org.eclipse.ui.contexts.dialogAndWindow" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="SHIFT+SPACE"/>\n</org.eclipse.ui.commands>
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=255,255,255
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=255,255,255
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=16,16,16
