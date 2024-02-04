@@ -20,7 +20,7 @@ public class NoticeReg extends HttpServlet{
 		// Response header에 Content-Type: text/html;charset=UTF-8로 지정됌. 브라우저가 자의적으로 컨텐트 해석하는 것을 방지함. 
 		
 //		request.setCharacterEncoding("UTF-8"); //폼 안의 값이 한글일 때 submit 후 안깨지게끔. 
-		String title = request.getParameter("title");
+		String title = request.getParameter("title"); //reg.html 에서 name 값을 받아옴. 
 		String content = request.getParameter("content");
 		
 		PrintWriter out = response.getWriter();
@@ -30,12 +30,3 @@ public class NoticeReg extends HttpServlet{
 	}
 
 }
-
-/* 가능한 케이스들
- 
-/hi?cnt=3	| "3"
-/hi?cnt=	| ""
-/hi?		| null		
-/hi 		| null 
-
-*/
