@@ -17,23 +17,25 @@ public class Calc extends HttpServlet {
 		throws ServletException, IOException {	
 		
 		//request
-		String num1_ = request.getParameter("num1");
-		String num2_ = request.getParameter("num2");
+		String num1_ = request.getParameter("x");
+		String num2_ = request.getParameter("y");
 		String operator = request.getParameter("operator");
 		
-		int num1 = 0;
-		int num2 = 0;
+		int x = 0;
+		int y = 0;
 		int result = 0;
 		
 		if(!num1_.equals("")) 
-			num1 = Integer.parseInt(num1_);
+			x = Integer.parseInt(num1_);
 		if(!num2_.equals("")) 
-			num2 = Integer.parseInt(num2_);
+			y = Integer.parseInt(num2_);
 		
 		if(operator.equals("add"))
-			result = num1 + num2;
+			result = x + y;
 		if(operator.equals("subtract"))
-			result = num1 - num2;
+			result = x - y;
+		if(operator.equals("multiply"))
+			result = x * y;
 				
 		//response
 		response.setCharacterEncoding("UTF-8"); //인코딩 방식 지정해줘야 한글 안깨짐. 쓰기해서 보내기. 

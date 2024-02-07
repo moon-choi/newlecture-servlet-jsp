@@ -56,7 +56,7 @@ service(request, response)
 
 HttpServletRequest request 객체
 
-- 사용자가 HTML Form에 입력한 내용(username과 password)을 request 객체에서 받아온다.
+- 사용자가 HTML Form에 입력한 내용(username과 password)을 request 객체에서 받아온다. 
    즉, HTTP 프로토콜의 Request 정보를 Servlet에게 전달
 - 헤더 정보, 파라미터, 쿠키, URI, URL, Body의 Stream 등을 읽어 들이는 메서드가 있다.
 - getHeader(“원하는 헤더 이름”) : 이 메서드를 통해 원하는 헤더 정보를 확인할 수 있다.
