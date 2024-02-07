@@ -16,10 +16,12 @@ public class Add2 extends HttpServlet {
 		throws ServletException, IOException {	
 		
 		//request
-		String[] num_ = request.getParameterValues("num"); //동일한 이름으로 여러개오면 배열로 옴.
+		String[] nums = request.getParameterValues("num"); //동일한 이름으로 여러개오면 배열로 옴.
+		//배열로 오면 getParameter대신 getParameterValues 씀.
+		
 		int result = 0;
-		for(int i = 0; i < num_.length; i++) {
-			int num = Integer.parseInt(num_[i]);
+		for(int i = 0; i < nums.length; i++) {
+			int num = Integer.parseInt(nums[i]);
 			result += num;
 		}
 				

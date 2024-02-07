@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/calc2")
+@WebServlet("/calc2") //@WebServlet("") 안에는 내가 이동할 html 파일 이름 작성. 
 public class Calc2 extends HttpServlet {
 	
 	@Override
@@ -20,7 +20,8 @@ public class Calc2 extends HttpServlet {
 		
 		//request
 		//application 객체는 전역 공간. session 객체는 현재 접속한 사용자. (접속자마다 공간이 달라짐)
-		ServletContext application = request.getServletContext(); //application 에 두 가지 값 저장. v_, op.
+		ServletContext application = request.getServletContext(); 
+		//ServletContext는 application 에 두 가지 값 저장. v_, op.
 		HttpSession session = request.getSession();
 		Cookie[] cookies = request.getCookies();
 		
@@ -31,7 +32,7 @@ public class Calc2 extends HttpServlet {
 		response.setCharacterEncoding("UTF-8"); //인코딩 방식 지정해줘야 한글 안깨짐. 쓰기해서 보내기. 
 		response.setContentType("text/html; charset=UTF-8"); //text/html은 형식. 브라우저야 이대로 해석해라.
 		
-		int v = 0;
+		int v = 0; //값을 입력하지 않았을 경우. 
 		
 		if(!v_.equals("")) v = Integer.parseInt(v_);
 		
@@ -100,6 +101,22 @@ public class Calc2 extends HttpServlet {
 }
 
 /*
+ 
+ServletContext
+ 톰캣이 실행되면서 생성됩니다.
+ 서블릿 컨텍스트(ServletContext)란 하나의 서블릿이 서블릿 컨테이너와 통신하기 위해서 사용되어지는 메서드들을 가지고 있는 클래스가 바로 ServletContext다.
+ 하나의 web application 내에 하나의 컨텍스트가 존재합니다. web application내에 있는 모든 서블릿들을 관리하며 정보공유할 수 있게 도와 주는 역할을 담당하는 놈이 바로 ServletContext다.
+ 쉽게 말하면 웹 애플리케이션의 등록 정보라고 볼 수 있다.
+ 필터와 리스너 또한 등록하여 통신 간에 활용할 수 있다.
+ 리스너는 서블릿 리스너, 세션 리스너 등 EventListener 구현체는 뭐든지 등록할 수 있다.
+ 필터는 characterEncoding 등 Filter 구현체는 뭐든지 등록할 수 있다.
+ServletContext를 얻는 방법
+
+ ServletContext는 ServletConfig의 getServletContext() 사용하여 얻는다.
+ Servlet(서블릿)은 HttpServlet을 상속한다. 그리고 HttpServlet은 ServletConfig를 구현하고 있기 때문에 getServletContext() 메서드를 바로 이용할 수 있다.
+ Servlet extends (HttpServlet implements ServletConfig)
+ ServletContext sc = getServletContext(); //서블릿 내에서 사용가능
+ 
 
 service(request, response)
 
