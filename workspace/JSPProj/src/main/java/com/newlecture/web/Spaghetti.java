@@ -1,6 +1,9 @@
 package com.newlecture.web;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,15 +24,24 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	if(num_ != null && !num_.equals("")) 
 		num = Integer.parseInt(num_);
 
+	//EL: String
 	String result;
-
 	if(num % 2 != 0){	
 		result = "odd number";
 	} else {
 		result = "even number";
 	}
-	
 	request.setAttribute("result", result);
+	
+	//EL: Array
+	String[] names = {"newlec", "dragon"};
+	request.setAttribute("names", names);
+	
+	//EL: Map
+	Map<String, Object> notice = new HashMap<String, Object>();
+	notice.put("id", 1);
+	notice.put("title", "EL is great");
+	request.setAttribute("notice", notice);	
 	
 	//redirect: 현재 작업했던 내용과 상관없는 새로운 요청. 
 	//forward: 현재 작업한 내용을 이어갈 수 있도록 공유하는 게 있음.
