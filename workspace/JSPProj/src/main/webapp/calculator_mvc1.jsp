@@ -4,7 +4,7 @@
  <%: : service 메소드 밑으로 들어감. (일반적인 코드블록은 다 _jspService 밑으로 들어감) 
  <%! : !를 쓰면 클래스 멤버 메서드 만들어 주고 싶을 때. (service 메소드 밑으로 안 들어감) 
  <%@ : Page 지시자. contentType, pageEncoding 
- <%= : html 문서 내에서 코드쓸 때.
+ <%= : html 문서 내에서 변수 쓸 때.
 */
 
 
