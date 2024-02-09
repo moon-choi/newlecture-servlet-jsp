@@ -1,7 +1,7 @@
 package com.newlecture.web;
 
 import java.io.IOException;
-
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -18,9 +18,13 @@ public class Calc2Cookie extends HttpServlet {
 		
 		//request
 		
-		//쿠키 읽기 (request)
+		//*** 3. 쿠키 읽기 (request): Request Headers > Cookie ***
 		Cookie[] cookies = request.getCookies(); //복수라서 배열로 옴
 		
+//		for(Cookie c : cookies) {
+//			System.out.println(c.getValue());
+//		}
+	
 		String v_ = request.getParameter("v");
 		String op = request.getParameter("operator");
 		
@@ -39,7 +43,8 @@ public class Calc2Cookie extends HttpServlet {
 			
 			int x = 0; //값 초기화 
 			int y = v; //지금 사용자가 전달한 값. 	
-			//쿠키 꺼내기 
+			
+			//*** 4. 쿠키 꺼내기 ***  
 			for(Cookie c : cookies)
 				if(c.getName().equals("v")) { //기존의 v
 					x = Integer.parseInt(c.getValue()); //c.getValue는 스트링을 반환하므로 정수형으로 바꿔줌. 
@@ -65,20 +70,24 @@ public class Calc2Cookie extends HttpServlet {
 			//2. 저장 (+, - 누를 때)
 		} else { 
 
-			//쿠키 심기 
+			//*** 1. 쿠키 심기(생성하기) *** 
 			Cookie vCookie = new Cookie("v", String.valueOf(v));
 			Cookie opCookie = new Cookie("op", op);
 			
-//			vCookie.setMaxAge(60 * 60 * 24); //in seconds. 브라우저가 닫혀도 살아남아있어야 함. 
+//			vCookie.setMaxAge(60 * 60 * 24); //in seconds. 브라우저가 닫혀도 살아남아있어야 함. 	
 			
+			//서블릿마다 쿠키는 다름 (Add, Add2, Calc)
+//			vCookie.setPath("/");
 			vCookie.setPath("/calc2cookie"); //어느 쿠키가 어느경우에 사용자로부터 전달되어야 하는지에 대한 경로.
 			opCookie.setPath("/calc2cookie");
-			// /는 모든 페이지 요청시 쿠키를 가져오란 뜻. 
-			// /notice/는 노티스가 포함됀 페이지에 쿠키를 가져오란 뜻. 
 			
-			//쿠키 전달하기 (response) 
+			//.setPath: 쿠키가 어느 경우에 사용자로부터 전달 되어야 하는 지.
+			//.setPath("/")는 모든 페이지 요청시 쿠키를 가져오란 뜻. 
+			//.setPath("/notice/")는 notice가 포함됀 하위 url을 요청할 경우에 쿠키를 가져오란 뜻. 
+			
+			//*** 2. 쿠키 전달하기 (response): Response header > Set-Cookie ***
 			response.addCookie(vCookie); //클라이언트에 전달 (response의 Header에 심어진 형태로)
-			response.addCookie(opCookie);
+			response.addCookie(opCookie); 
 			
 			response.sendRedirect("calc2cookie.html");
 		}
@@ -90,4 +99,7 @@ public class Calc2Cookie extends HttpServlet {
 /*
  서버에 저장: Application, session
  클라이언트에 저장: Cookie
+ 
+ Response headers: 서버가 클라이언트에게 돌려줌.
+ Request headers: 쿠키를 가져가서 서버가 사용할 수 있게 함. 
 */
