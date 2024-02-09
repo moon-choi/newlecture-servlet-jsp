@@ -1,15 +1,12 @@
 package com.newlecture.web;
 
 import java.io.IOException;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/calc3")
 public class Calc3 extends HttpServlet {
@@ -20,8 +17,6 @@ public class Calc3 extends HttpServlet {
 		
 		//request
 		//application 객체는 전역 공간. session 객체는 현재 접속한 사용자. (접속자마다 공간이 달라짐)
-		ServletContext application = request.getServletContext(); //application 에 두 가지 값 저장. v_, op.
-		HttpSession session = request.getSession();
 		Cookie[] cookies = request.getCookies();
 		
 		String v_ = request.getParameter("v");
