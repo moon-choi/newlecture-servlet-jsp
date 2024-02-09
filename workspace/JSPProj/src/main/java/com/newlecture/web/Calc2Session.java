@@ -77,5 +77,5 @@ public class Calc2Session extends HttpServlet {
  chrome: 2 =
  결과: 500
  
- 세션의 기본 타임아웃은 30
+ 세션의 기본 타임아웃은 30분 
  */
