@@ -1,15 +1,12 @@
 package com.newlecture.web;
 
 import java.io.IOException;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/calc2application") //@WebServlet("") 안에는 내가 이동할 html 파일 이름 작성. 
 public class Calc2Application extends HttpServlet {
@@ -48,7 +45,7 @@ public class Calc2Application extends HttpServlet {
 
 			int result = 0;
 			
-			//application 저장소에 저장됀 기존의 오퍼레이터 (= 누르기 전)
+			//application 저장소에 저장됀 기존의 operator (= 누르기 전)
 			if(operator.equals("+")) 
 				result = x + y;
 			if(operator.equals("-"))
