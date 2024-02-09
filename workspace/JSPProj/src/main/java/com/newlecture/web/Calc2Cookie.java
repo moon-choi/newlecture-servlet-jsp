@@ -74,7 +74,8 @@ public class Calc2Cookie extends HttpServlet {
 			Cookie vCookie = new Cookie("v", String.valueOf(v));
 			Cookie opCookie = new Cookie("op", op);
 			
-//			vCookie.setMaxAge(60 * 60 * 24); //in seconds. 브라우저가 닫혀도 살아남아있어야 함. 	
+			//브라우저가 닫혀도 살아남아있어야 함. setMaxAge 설정 안할 시 브라우저의 생존주기와 같음. 
+			vCookie.setMaxAge(60 * 60 * 24); //in seconds. 
 			
 			//서블릿마다 쿠키는 다름 (Add, Add2, Calc)
 //			vCookie.setPath("/");
