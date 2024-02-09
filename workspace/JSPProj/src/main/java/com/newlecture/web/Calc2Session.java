@@ -39,9 +39,9 @@ public class Calc2Session extends HttpServlet {
 			//1. 계산 (= 누를 때)
 		if(op.equals("=")) { 
 			
-			int x = (Integer)session.getAttribute("vKey"); //값을 꺼내려는데 null임. //*** 2 ***	
+			int x = (Integer)session.getAttribute("v"); //값을 꺼내려는데 null임. //*** 2 ***	
 			int y = v; //지금 사용자가 전달한 값. 
-			String operator = (String)session.getAttribute("opKey"); //*** 3 ***
+			String operator = (String)session.getAttribute("op"); //*** 3 ***
 						
 			int result = 0;
 			
@@ -55,8 +55,8 @@ public class Calc2Session extends HttpServlet {
 			//2. 저장 (+, - 누를 때)
 		} else {
 			
-			session.setAttribute("vKey", v); //"첫 번째 입력값을 담아 놓겠다"
-			session.setAttribute("opKey", op); //*** 4 ***
+			session.setAttribute("v", v); //"첫 번째 입력값을 담아 놓겠다"
+			session.setAttribute("op", op); //*** 4 ***
 			
 			response.sendRedirect("calc2session.html");
 		}
