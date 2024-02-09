@@ -60,7 +60,22 @@ public class Calc2Session extends HttpServlet {
 			
 			response.sendRedirect("calc2session.html");
 		}
-		
 	
 	}
 }
+
+
+/*
+ Calc2Application 에서는 application 단위로 저장하므로 다른 브라우저에서 해도 값 저장됌.
+ firefox: 1 + 
+ chrome: 2 =
+ 결과:3
+ 
+ Calc2Session 에서는 session (브라우저) 단위로 저장하므로 다른 브라우저에서 하면 값 저장 안됌. 
+ (세션 id로 사용자를 식별함. Application > Cookies에 JESSIONID)
+ firefox: 1 +
+ chrome: 2 =
+ 결과: 500
+ 
+ 세션의 기본 타임아웃은 30
+ */
