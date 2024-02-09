@@ -64,7 +64,6 @@ public class Calc2Session extends HttpServlet {
 	}
 }
 
-
 /*
  Calc2Application 에서는 application 단위로 저장하므로 다른 브라우저에서 해도 값 저장됌.
  firefox: 1 + 
