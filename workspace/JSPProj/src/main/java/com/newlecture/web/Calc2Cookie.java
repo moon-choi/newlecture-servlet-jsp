@@ -103,4 +103,7 @@ public class Calc2Cookie extends HttpServlet {
  
  Response headers: 서버가 클라이언트에게 돌려줌.
  Request headers: 쿠키를 가져가서 서버가 사용할 수 있게 함. 
+ 
+ 생명 주기가 긴(1년) 데이터는 쿠키에 저장해야 한다.
+ 특정 url에서만 쓰는 (e.g. /notice) 데이터는 쿠키에 저장해야 한다.
 */
