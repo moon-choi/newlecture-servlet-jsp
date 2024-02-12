@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="com.newlecture.web.entity.Notice"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -173,21 +174,22 @@
 						</tr>
 					</thead>
 					<tbody>
-							
-					<% for (int i = 0; i < 10; i++) { %>	
-							
+						
+					<% 
+					List<Notice> list = (List<Notice>)request.getAttribute("list");
+					for(Notice notice : list) {
+						pageContext.setAttribute("notice", notice);
+					%>		
 					<tr>
-						<td><%= i + 1 %></td>
-						<td class="title indent text-align-left"><a href="detail.html">스프링 8강까지의 예제 코드</a></td>
-						<td>newlec</td>
-						<td>
-							2019-08-18		
+						<td>${notice.id}</td>
+						<td class="title indent text-align-left">
+							<a href="detail?id=${id}">${notice.title}</a>
 						</td>
-						<td>146</td>
+						<td>${notice.writerId}</td>
+						<td>${notice.regDate}</td>
+						<td>${notice.hit}</td>
 					</tr>
-
-					<% } %>
-					
+					<%} %>
 					</tbody>
 				</table>
 			</div>
@@ -259,4 +261,4 @@
         </footer>
     </body>
     
-    </html>
+</html>
