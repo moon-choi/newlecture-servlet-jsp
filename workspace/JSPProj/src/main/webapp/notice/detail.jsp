@@ -153,8 +153,8 @@
 									<td class="text-align-left text-indent text-strong text-orange" colspan="3">${notice.title}</td>
 								</tr>
 								<tr>
-									<th>${notice.regDate}</th>
-									<td class="text-align-left text-indent" colspan="3">2019-08-18	</td>
+									<th>작성</th>
+									<td class="text-align-left text-indent" colspan="3">${notice.regDate}</td>
 								</tr>
 								<tr>
 									<th>작성자</th>

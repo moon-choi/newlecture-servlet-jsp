@@ -44,16 +44,11 @@ public class NoticeDetailController extends HttpServlet {
 			String files = rs.getString("FILES");
 			String content = rs.getString("CONTENT");
 
-			//Overload됀 생성자를 이용해 값을 초기화. 
-			Notice notice = new Notice( //순서 유의! 
-					id, 
-					title, 
-					writerId, 
-					regDate, 
-					hit, 
-					files, 
-					content);
+			//.entity 패키지의 Notice.java
+			//Overload됀 생성자를 이용해 값을 초기화. setter를 쓰지 않을 때는 담는 순서에 유의! 
+			Notice notice = new Notice(id, title, writerId, regDate, hit, files, content);
 			
+			//1. 데이터 심기 
 			request.setAttribute("notice", notice);
 			
 			//request는 전달외에 저장소 역할도 함. 
@@ -75,12 +70,13 @@ public class NoticeDetailController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		//서블릿에서 다른 서블릿으로 전이시키는 방법 
-		//1. redirect: 아예 다른 페이지로 
-		//2. forward : 이어서 작업. 
+		//서블릿(Contoller java)에서 다른 서블릿(jsp)으로 전이시키는 2가지 방법 
+		// redirect: 아예 다른 페이지로 
+		// forward : 이어서 작업. 
 		
+		//2. 데이터 전달하기 
 		request
-		.getRequestDispatcher("/notice/detail.jsp")
+		.getRequestDispatcher("/notice/detail.jsp") //홈디렉토리 webapp 기준 
 		.forward(request, response); //request와 response를 detail.jsp와 공유하게 됌. 
 	}
 }

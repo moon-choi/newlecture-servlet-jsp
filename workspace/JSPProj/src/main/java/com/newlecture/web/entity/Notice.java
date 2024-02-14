@@ -13,7 +13,19 @@ public class Notice {
 	
 	//기본 생성자
 	public Notice() {
-		// TODO Auto-generated constructor stub
+		
+	}
+	
+	//오버로드 생성자 
+	public Notice(int id, String title, String writerId, Date regDate, String hit, String files, String content) {
+
+		this.id = id;
+		this.title = title;
+		this.writerId = writerId;
+		this.regDate = regDate;
+		this.hit = hit;
+		this.files = files;
+		this.content = content;
 	}
 	
 	public int getId() {
@@ -48,8 +60,6 @@ public class Notice {
 		this.regDate = regDate;
 	}
 
-
-
 	public String getHit() {
 		return hit;
 	}
@@ -71,17 +81,6 @@ public class Notice {
 	}
 
 	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public Notice(int id, String title, String writerId, Date regDate, String hit, String files, String content) {
-
-		this.id = id;
-		this.title = title;
-		this.writerId = writerId;
-		this.regDate = regDate;
-		this.hit = hit;
-		this.files = files;
 		this.content = content;
 	}
 

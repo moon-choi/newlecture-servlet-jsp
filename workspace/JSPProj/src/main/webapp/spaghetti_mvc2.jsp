@@ -26,7 +26,8 @@
 	${notice.title} ___ notice.title<br>
 	${header.host} ____ header.host<br>
 	${header.accept} ____ header.accept<br>
-	${param.n lt 7} ___ param.n lt 7<br> <!-- true/false -->
+	<br>
+	${param.n gt 7} ___ param.n lt 7<br> <!-- true/false -->
 	${empty param.n} ___ empty param.n <br> <!--  param.n == null || param.n == '' -->
 	${not empty param.n} ___ not empty param.n <br>
 	${empty param.n? 'empty value' : param.n} ___ param.n == null || param.n == ''<br>

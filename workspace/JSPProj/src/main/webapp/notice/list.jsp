@@ -1,6 +1,6 @@
 <%@page import="com.newlecture.web.entity.Notice"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -176,9 +176,10 @@
 					<tbody>
 						
 					<% 
-					List<Notice> list = (List<Notice>)request.getAttribute("list");
+					List<Notice> list = (List<Notice>)request.getAttribute("list"); //오브젝트를 리스트로 형변환 
+					
 					for(Notice notice : list) {
-						pageContext.setAttribute("notice", notice);
+						pageContext.setAttribute("notice", notice); //상태 저장소: page, request, session, application 
 					%>		
 					<tr>
 						<td>${notice.id}</td>

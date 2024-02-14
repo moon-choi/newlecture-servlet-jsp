@@ -44,6 +44,7 @@ public class NoticeListController extends HttpServlet {
 				String files = rs.getString("FILES");
 				String content = rs.getString("CONTENT");
 				
+				//.entity 패키지의 Notice.java
 				Notice notice = new Notice( //순서 유의! 
 						id, 
 						title, 
@@ -53,8 +54,8 @@ public class NoticeListController extends HttpServlet {
 						files, 
 						content);
 				
-				list.add(notice);
-
+				//list는 notice 객체로 이루어진 배열 
+				list.add(notice); //.add는 ArrayList 클래스의 주요 메소드 
 				
 				rs.close();
 				st.close();
@@ -69,8 +70,10 @@ public class NoticeListController extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		//1. 데이터 심기 
 		request.setAttribute("list", list);
 		
+		//2. 데이터 전달하기 
 		request
 		.getRequestDispatcher("/notice/list.jsp")
 		.forward(request, response);
