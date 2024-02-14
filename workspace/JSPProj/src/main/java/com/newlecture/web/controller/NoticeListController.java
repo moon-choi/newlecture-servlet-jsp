@@ -75,7 +75,7 @@ public class NoticeListController extends HttpServlet {
 		
 		//2. 데이터 전달하기 
 		request
-		.getRequestDispatcher("/notice/list.jsp")
+		.getRequestDispatcher("/WEB-INF/view/notice/list.jsp")
 		.forward(request, response);
 	}
 

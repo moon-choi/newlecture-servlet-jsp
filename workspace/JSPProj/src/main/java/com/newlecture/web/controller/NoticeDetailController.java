@@ -76,7 +76,7 @@ public class NoticeDetailController extends HttpServlet {
 		
 		//2. 데이터 전달하기 
 		request
-		.getRequestDispatcher("/notice/detail.jsp") //홈디렉토리 webapp 기준 
+		.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp") //홈디렉토리 webapp 기준 
 		.forward(request, response); //request와 response를 detail.jsp와 공유하게 됌. 
 	}
 }
