@@ -1,6 +1,7 @@
 <%@page import="com.newlecture.web.entity.Notice"%>
 <%@page import="java.util.List"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -175,20 +176,23 @@
 					</thead>
 					<tbody>
 						
-					<% 
-					List<Notice> list = (List<Notice>)request.getAttribute("list"); //오브젝트를 리스트로 형변환 
-					
+					<%-- <% 
+					List<Notice> list = (List<Notice>)request.getAttribute("list"); //오브젝트를 리스트로 형변환 					
 					for(Notice notice : list) {
 						pageContext.setAttribute("notice", notice); //상태 저장소: page, request, session, application 
-					%>		
+					%> --%>	
+					
+					<c:forEach var="notice" items="${list}" begin="1" end="3" varStatus="st">
 					<tr>
-						<td>${notice.id}</td>
+						<td>${st.index + 1} / ${notice.id}</td>
 						<td class="title indent text-align-left"><a href="detail?id=${notice.id}">${notice.title}</a></td>
 						<td>${notice.writerId}</td>
 						<td>${notice.regDate}</td>
 						<td>${notice.hit}</td>
 					</tr>
-					<%} %>
+					</c:forEach>	
+					
+					<%-- <%} %> --%>
 					</tbody>
 				</table>
 			</div>
@@ -206,9 +210,13 @@
 		<span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
 		
 	</div>
-	<ul class="-list- center">
-		<li><a class="-text- orange bold" href="?p=1&t=&q=" >1</a></li>
-				
+	
+	<c:set var="page" value="${(empty param.p == null) ? 1 : param.p}"/>
+	<c:set var="startNum" value="${page - (page - 1) % 5}"/>
+		<ul class="-list- center">
+		<c:forEach var="i" begin="0" end="4">
+		<li><a class="-text- orange bold" href="?p=${startNum + i}&t=&q=" >${i + startNum}</a></li>
+		</c:forEach>		
 	</ul>
 	<div>
 		
